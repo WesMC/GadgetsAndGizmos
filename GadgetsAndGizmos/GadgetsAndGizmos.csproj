@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -20,6 +20,8 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\GadgetsAndGismos.Utilities\GadgetsAndGizmos.Utilities.csproj" />
+    <ProjectReference Include="..\GadgetsAndGiszmos.Models\GadgetsAndGizmos.Models.csproj" />
     <ProjectReference Include="..\GadgetsAndGizmos.DataAccessLayer\GadgetsAndGizmos.DataAccessLayer.csproj" />
   </ItemGroup>
 

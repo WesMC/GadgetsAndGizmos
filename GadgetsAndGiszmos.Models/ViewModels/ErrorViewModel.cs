@@ -1,6 +1,6 @@
 using System;
 
-namespace GadgetsAndGizmos.Models
+namespace GadgetsAndGizmos.Models.ViewModels
 {
     public class ErrorViewModel
     {
