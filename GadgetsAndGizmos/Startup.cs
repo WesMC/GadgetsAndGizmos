@@ -22,6 +22,24 @@ namespace GadgetsAndGizmos
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Startup Constructor used to include appsettings.local.json for db connection string separation.
+        /// This may be unnecessary, or unusable.
+        /// Source: https://stackoverflow.com/questions/44249263/optional-appsettings-local-json-in-new-format-visual-studio-project
+        /// </summary>
+        /// <param name="env">Provides web hosting environment info for Configuration Builder</param>
+        public Startup(IWebHostEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true) //load base settings
+                .AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true) //load local settings
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true) //load environment settings
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
+        }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
