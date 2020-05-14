@@ -16,6 +16,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
 
@@ -23,6 +24,11 @@
     <ProjectReference Include="..\GadgetsAndGismos.Utilities\GadgetsAndGizmos.Utilities.csproj" />
     <ProjectReference Include="..\GadgetsAndGiszmos.Models\GadgetsAndGizmos.Models.csproj" />
     <ProjectReference Include="..\GadgetsAndGizmos.DataAccessLayer\GadgetsAndGizmos.DataAccessLayer.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

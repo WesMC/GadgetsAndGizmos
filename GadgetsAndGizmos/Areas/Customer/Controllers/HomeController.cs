@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GadgetsAndGizmos.Models.ViewModels;
 
-namespace GadgetsAndGizmos.Controllers
+namespace GadgetsAndGizmos.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
