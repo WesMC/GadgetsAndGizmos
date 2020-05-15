@@ -17,37 +17,33 @@ namespace GadgetsAndGizmos
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
-            Configuration = configuration;
-        }
+            //Configuration = configuration;
+            _env = env;
 
-        /// <summary>
-        /// Startup Constructor used to include appsettings.local.json for db connection string separation.
-        /// This may be unnecessary, or unusable.
-        /// Source: https://stackoverflow.com/questions/44249263/optional-appsettings-local-json-in-new-format-visual-studio-project
-        /// </summary>
-        /// <param name="env">Provides web hosting environment info for Configuration Builder</param>
-        public Startup(IWebHostEnvironment env)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                .SetBasePath(_env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true) //load base settings
                 .AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true) //load local settings
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true) //load environment settings
+                .AddJsonFile($"appsettings.{_env.EnvironmentName}.json", optional: true) //load environment settings
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
+        private readonly IWebHostEnvironment _env;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(
+                Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -55,9 +51,9 @@ namespace GadgetsAndGizmos
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (_env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
