@@ -341,3 +341,6 @@ healthchecksdb
 
 # Local App Settings (With DB Connection String)
 appsettings.local.json
+
+# Visual Studio Code Dir and Files
+.vscode/
