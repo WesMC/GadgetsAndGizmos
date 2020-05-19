@@ -13,6 +13,8 @@ using GadgetsAndGizmos.DataAccessLayer.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GadgetsAndGizmos.DataAccessLayer.Repository.IRepository;
+using GadgetsAndGizmos.DataAccessLayer.Repository;
 
 namespace GadgetsAndGizmos
 {
@@ -72,6 +74,7 @@ namespace GadgetsAndGizmos
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }
