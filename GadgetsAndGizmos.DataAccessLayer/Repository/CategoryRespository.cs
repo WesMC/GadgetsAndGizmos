@@ -19,12 +19,11 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository
 
         public void Update(Category category)
         {
-            var objFromDb = _db.Categories.FirstOrDefault(s => s.CategoryId == category.CategoryId);
+            var objFromDb = _db.Categories.FirstOrDefault(s => s.Id == category.Id);
 
             if (objFromDb != null)
             {
                 objFromDb.Name = category.Name;
-                _db.SaveChanges();
             }
         }
     }

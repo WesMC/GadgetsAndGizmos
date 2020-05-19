@@ -34,7 +34,7 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository.IRepository
         /// <param name="procedureName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
-        IEnumerable<T> List<T>(string procedureName, DynamicParameters param = null);
+        IEnumerable<T> ListOneTable<T>(string procedureName, DynamicParameters param = null);
 
         /// <summary>
         /// Returns two tables
@@ -44,6 +44,6 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository.IRepository
         /// <param name="procedureName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
-        Tuple<IEnumerable<T1>, IEnumerable<T2>> List<T1, T2>(string procedureName, DynamicParameters param = null);
+        Tuple<IEnumerable<T1>, IEnumerable<T2>> ListTwoTables<T1, T2>(string procedureName, DynamicParameters param = null);
     }
 }

@@ -18,7 +18,7 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository
         public SP_Call(ApplicationDbContext db)
         {
             _db = db;
-            ConnectionString = db.Database.GetDbConnection().ConnectionString;
+            ConnectionString = _db.Database.GetDbConnection().ConnectionString;
         }
 
         public void Dispose()
@@ -34,7 +34,7 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository
             sqlConnection.Execute(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
         }
 
-        public IEnumerable<T> List<T>(string procedureName, DynamicParameters param = null)
+        public IEnumerable<T> ListOneTable<T>(string procedureName, DynamicParameters param = null)
         {
             using SqlConnection sqlConnection = new SqlConnection(ConnectionString);
 
@@ -42,7 +42,7 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository
             return sqlConnection.Query<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
         }
 
-        public Tuple<IEnumerable<T1>, IEnumerable<T2>> List<T1, T2>(string procedureName, DynamicParameters param = null)
+        public Tuple<IEnumerable<T1>, IEnumerable<T2>> ListTwoTables<T1, T2>(string procedureName, DynamicParameters param = null)
         {
             using SqlConnection sqlConnection = new SqlConnection(ConnectionString);
 

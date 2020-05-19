@@ -27,9 +27,4 @@
     <ProjectReference Include="..\GadgetsAndGizmos.DataAccessLayer\GadgetsAndGizmos.DataAccessLayer.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-  </ItemGroup>
-
 </Project>

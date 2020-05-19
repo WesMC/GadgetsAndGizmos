@@ -21,8 +21,9 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
 
             modelBuilder.Entity("GadgetsAndGizmos.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("CategoryId")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -31,7 +32,7 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("Id");
 
                     b.ToTable("Categories");
                 });
