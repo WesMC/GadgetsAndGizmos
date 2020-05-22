@@ -15,10 +15,12 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository
             _db = db;
             Category = new CategoryRespository(_db);
             SP_Call = new SP_Call(_db);
+            ProductType = new ProductTypeRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
         public ISP_Call SP_Call { get; private set; }
+        public IProductTypeRepository ProductType { get; private set; }
 
         public void Dispose()
         {
