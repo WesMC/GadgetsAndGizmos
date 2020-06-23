@@ -24,6 +24,7 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository
             if (objFromDb != null)
             {
                 objFromDb.Name = category.Name;
+                objFromDb.ParentId = category.ParentId;
             }
         }
     }

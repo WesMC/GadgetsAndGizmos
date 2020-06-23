@@ -17,6 +17,5 @@ namespace GadgetsAndGizmos.DataAccessLayer.Data
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<ProductType> ProductTypes { get; set; }
     }
 }

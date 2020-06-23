@@ -23,7 +23,6 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("CategoryId")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -32,39 +31,14 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("GadgetsAndGizmos.Models.ProductType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ProductTypeId")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("SubType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(65)")
-                        .HasMaxLength(65);
-
-                    b.Property<string>("SubType1")
-                        .HasColumnType("nvarchar(65)")
-                        .HasMaxLength(65);
-
-                    b.Property<string>("SubType2")
-                        .HasColumnType("nvarchar(65)")
-                        .HasMaxLength(65);
-
-                    b.Property<string>("SubType3")
-                        .HasColumnType("nvarchar(65)")
-                        .HasMaxLength(65);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProductTypes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -265,6 +239,13 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("GadgetsAndGizmos.Models.Category", b =>
+                {
+                    b.HasOne("GadgetsAndGizmos.Models.Category", "Parent")
+                        .WithMany("SubCategoies")
+                        .HasForeignKey("ParentId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
