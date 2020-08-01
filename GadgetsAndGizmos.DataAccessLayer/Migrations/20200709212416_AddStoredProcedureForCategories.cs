@@ -9,19 +9,30 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
             migrationBuilder.Sql(@"CREATE PROC usp_GetCategories
                                                 AS
                                                 BEGIN
-                                                    Select * FROM dbo.Categories
+                                                    Select c.*, p.Name as ParentName from dbo.Categories c
+                                                    LEFT OUTER JOIN dbo.Categories p ON c.ParentId = p.Id
+                                                    Order by ParentId asc
                                                 END");
             
             migrationBuilder.Sql(@"CREATE PROC usp_GetCategory
                                                 @Id int
                                                 AS
                                                 BEGIN
-                                                    Select * FROM dbo.Categories WHERE (Id = @Id)
+                                                    Select c.*, p.Name as ParentName from dbo.Categories c
+                                                    JOIN dbo.Categories p ON c.ParentId = p.Id 
+                                                    WHERE (c.Id = @Id)
                                                 END");
 
-            migrationBuilder.Sql(@"CREATE PROC usp_UpdateCategory_PI
+            migrationBuilder.Sql(@"CREATE PROC usp_GetCategoryNameFromId
                                                 @Id int
-                                                @Name varchar(50)
+                                                AS
+                                                BEGIN
+                                                    SELECT Name FROM dbo.Categories WHERE Id = @Id
+                                                END");
+
+            migrationBuilder.Sql(@"CREATE PROC usp_UpdateCategory
+                                                @Id int,
+                                                @Name varchar(50),
                                                 @ParentId int
                                                 AS
                                                 BEGIN
@@ -30,32 +41,8 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                                                     Where Id = @Id
                                                 END");
 
-            migrationBuilder.Sql(@"CREATE PROC usp_UpdateCategory_PN
-                                                @Id int
-                                                @Name varchar(50)
-                                                @ParentName varchar(50)
-                                                AS
-                                                BEGIN
-                                                    UPDATE dbo.Categories
-                                                    SET Name = @Name, ParentId = (SELECT Id FROM dbo.Categories WHERE Name = @ParentName)
-                                                    Where Id = @Id
-                                                END");
-
-            migrationBuilder.Sql(@"CREATE PROC usp_UpdateCategory_PNI
-                                                @Id int
-                                                @Name varchar(50)
-                                                @ParentName varchar(50)
-                                                @ParentId
-                                                AS
-                                                BEGIN
-                                                    UPDATE dbo.Categories
-                                                    SET Name = @Name, ParentId = (SELECT Id FROM dbo.Categories WHERE Name = @ParentName, Id = @ParentId)
-                                                    Where Id = @Id
-                                                END");
-
             migrationBuilder.Sql(@"CREATE PROC usp_CreateCategory
-                                                @Name varchar(50)
-                                                @ParentName varchar(50)
+                                                @Name varchar(50),
                                                 @ParentId int
                                                 AS
                                                 BEGIN
@@ -64,22 +51,32 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                                                         ParentId
                                                     ) VALUES (
                                                         @Name,
-                                                        (SELECT Id from dbo.Categories WHERE Id = @ParentId, Name = @ParentName)
+                                                        @ParentId
                                                     )
-                                                    UPDATE dbo.Categories
-                                                    SET Name = @Name, ParentId = (SELECT Id FROM dbo.Categories WHERE Name = @ParentName)
-                                                    Where Id = @Id
+                                                END");
+
+            migrationBuilder.Sql(@"CREATE PROC usp_DeleteCategory
+                                                @Id int
+                                                AS
+                                                BEGIN
+                                                    DELETE FROM dbo.Categories
+                                                    WHERE Id = @Id
                                                 END");
 
                                                 /*
-                                                Below Works in SQL Server .. 
-                                                INSERT INTO dbo.Categories (Name, ParentId) 
-                                                Values ('Child2of2', (SELECT Id FROM dbo.Categories WHERE Name = 'Parent2'))
+                                                Succeeded
                                                 */
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+
+            migrationBuilder.Sql(@"DROP PROCEDURE usp_GetCategories");
+            migrationBuilder.Sql(@"DROP PROCEDURE usp_GetCategory");
+            migrationBuilder.Sql(@"DROP PROCEDURE usp_GetCategoryNameFromId");
+            migrationBuilder.Sql(@"DROP PROCEDURE usp_UpdateCategory");
+            migrationBuilder.Sql(@"DROP PROCEDURE usp_CreateCategory");
+            migrationBuilder.Sql(@"DROP PROCEDURE usp_DeleteCategory");
 
         }
     }
