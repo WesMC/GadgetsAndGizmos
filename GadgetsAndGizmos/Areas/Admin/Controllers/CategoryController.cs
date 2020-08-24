@@ -35,8 +35,9 @@ namespace GadgetsAndGizmos.Areas.Admin.Controllers
                 var parameter = new Dapper.DynamicParameters();
                 parameter.Add("@Id", id);
 
-                var objFromDb = _unitOfWork.SP_Call.OneRecord<Category>(StaticDetails.Proc_Category_Get, parameter);
-                category = _unitOfWork.Category.Get(id.GetValueOrDefault());
+                category = _unitOfWork.SP_Call.OneRecord<Category>(StaticDetails.Proc_Category_Get, parameter);
+
+                //category = _unitOfWork.Category.Get(id.GetValueOrDefault());
 
                 if (category == null)
                 {
