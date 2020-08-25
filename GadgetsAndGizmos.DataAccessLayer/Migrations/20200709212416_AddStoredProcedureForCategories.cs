@@ -18,8 +18,7 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                                                 @Id int
                                                 AS
                                                 BEGIN
-                                                    Select c.*, p.Name as ParentName from dbo.Categories c
-                                                    JOIN dbo.Categories p ON c.ParentId = p.Id 
+                                                    Select c.* from dbo.Categories c
                                                     WHERE (c.Id = @Id)
                                                 END");
 
