@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GadgetsAndGismos.Utilities\GadgetsAndGizmos.Utilities.csproj" />
-    <ProjectReference Include="..\GadgetsAndGiszmos.Models\GadgetsAndGizmos.Models.csproj" />
+    <ProjectReference Include="..\GadgetsAndGizmos.Utilities\GadgetsAndGizmos.Utilities.csproj" />
+    <ProjectReference Include="..\GadgetsAndGizmos.Models\GadgetsAndGizmos.Models.csproj" />
   </ItemGroup>
 
 </Project>

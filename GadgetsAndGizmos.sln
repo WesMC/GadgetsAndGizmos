@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgetsAndGizmos", "GadgetsAndGizmos\GadgetsAndGizmos.csproj", "{38E69D9D-0A33-443C-9EE3-2714C6F33F02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GadgetsAndGizmos", "GadgetsAndGizmos\GadgetsAndGizmos.csproj", "{38E69D9D-0A33-443C-9EE3-2714C6F33F02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgetsAndGizmos.DataAccessLayer", "GadgetsAndGizmos.DataAccessLayer\GadgetsAndGizmos.DataAccessLayer.csproj", "{4087A80F-AF88-4760-9A26-189C7484F9DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GadgetsAndGizmos.DataAccessLayer", "GadgetsAndGizmos.DataAccessLayer\GadgetsAndGizmos.DataAccessLayer.csproj", "{4087A80F-AF88-4760-9A26-189C7484F9DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgetsAndGizmos.Models", "GadgetsAndGiszmos.Models\GadgetsAndGizmos.Models.csproj", "{96276C36-A2CB-4720-B7D2-E095F59F78C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GadgetsAndGizmos.Utilities", "GadgetsAndGizmos.Utilities\GadgetsAndGizmos.Utilities.csproj", "{9D8BDF6E-53DF-42B9-A6FF-2146EF71C7DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgetsAndGizmos.Utilities", "GadgetsAndGismos.Utilities\GadgetsAndGizmos.Utilities.csproj", "{CB69DED4-6059-41B6-A629-39E0657E9BCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GadgetsAndGizmos.Models", "GadgetsAndGizmos.Models\GadgetsAndGizmos.Models.csproj", "{E92FEFEE-983C-4E50-B436-B082CD54C2FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{4087A80F-AF88-4760-9A26-189C7484F9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4087A80F-AF88-4760-9A26-189C7484F9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4087A80F-AF88-4760-9A26-189C7484F9DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96276C36-A2CB-4720-B7D2-E095F59F78C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96276C36-A2CB-4720-B7D2-E095F59F78C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96276C36-A2CB-4720-B7D2-E095F59F78C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96276C36-A2CB-4720-B7D2-E095F59F78C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB69DED4-6059-41B6-A629-39E0657E9BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB69DED4-6059-41B6-A629-39E0657E9BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB69DED4-6059-41B6-A629-39E0657E9BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB69DED4-6059-41B6-A629-39E0657E9BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D8BDF6E-53DF-42B9-A6FF-2146EF71C7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D8BDF6E-53DF-42B9-A6FF-2146EF71C7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D8BDF6E-53DF-42B9-A6FF-2146EF71C7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D8BDF6E-53DF-42B9-A6FF-2146EF71C7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E92FEFEE-983C-4E50-B436-B082CD54C2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E92FEFEE-983C-4E50-B436-B082CD54C2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E92FEFEE-983C-4E50-B436-B082CD54C2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E92FEFEE-983C-4E50-B436-B082CD54C2FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

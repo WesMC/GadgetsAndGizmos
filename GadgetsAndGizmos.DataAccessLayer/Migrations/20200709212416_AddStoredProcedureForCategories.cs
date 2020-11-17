@@ -61,10 +61,6 @@ namespace GadgetsAndGizmos.DataAccessLayer.Migrations
                                                     DELETE FROM dbo.Categories
                                                     WHERE Id = @Id
                                                 END");
-
-                                                /*
-                                                Succeeded
-                                                */
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
