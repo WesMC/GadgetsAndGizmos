@@ -11,6 +11,7 @@ namespace GadgetsAndGizmos.Models
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -38,17 +39,5 @@ namespace GadgetsAndGizmos.Models
         public double VolumeX {get; set;}
         public double VolumeY {get; set;}
         public double VolumeZ { get; set; }
-
-        public enum WeightSystem { 
-            lbs = 0,
-            kg = 1
-        }
-
-        public enum VolumeSystem {
-            inch = 0,
-            cm = 1
-        }
-
-        
     }
 }

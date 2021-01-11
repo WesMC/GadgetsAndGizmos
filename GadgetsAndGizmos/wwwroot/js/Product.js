@@ -12,7 +12,11 @@ function loadDataTable() {
             "url": "/Admin/Product/GetAll"
         },
         "columns": [
-            { "data": "name", "width": "60%" },
+            { "data": "name", "width": "15%" },
+            { "data": "category.name", "width": "15%" },
+            { "data": "description", "width": "20%" },
+            { "data": "price", "width": "10%" },
+            { "data": "manufacturer", "width": "15%" },
             {
                 "data": "id",
                 "render": function (data) {
@@ -26,7 +30,7 @@ function loadDataTable() {
                                 </a>
                             </div>
                             `;
-                }, "width": "40%"
+                }, "width": "25%"
             }
         ]
     });

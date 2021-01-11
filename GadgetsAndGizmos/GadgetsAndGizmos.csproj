@@ -27,4 +27,9 @@
     <ProjectReference Include="..\GadgetsAndGizmos.DataAccessLayer\GadgetsAndGizmos.DataAccessLayer.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
+  </ItemGroup>
+
 </Project>
