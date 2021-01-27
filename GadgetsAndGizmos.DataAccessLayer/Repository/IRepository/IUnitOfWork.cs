@@ -8,7 +8,9 @@ namespace GadgetsAndGizmos.DataAccessLayer.Repository.IRepository
     {
         ICategoryRepository Category { get; }
         IProductRepository Product { get; }
+        ICompanyRepository Company { get; }
         ISP_Call SP_Call { get; }
+        IApplicationUserRepository ApplicationUser { get; }
 
         void Save();
     }

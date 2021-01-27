@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GadgetsAndGizmos.DataAccessLayer.Repository.IRepository;
 using GadgetsAndGizmos.DataAccessLayer.Repository;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using GadgetsAndGizmos.Utilities;
 
 namespace GadgetsAndGizmos
 {
@@ -72,8 +74,9 @@ namespace GadgetsAndGizmos
             }
             // END OF DB CONTEXT OPTIONS BUILDER
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddSingleton<IEmailSender, EmailSender>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
